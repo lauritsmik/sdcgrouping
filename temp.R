@@ -4,6 +4,10 @@ library(tidyverse)
 
 use_r("aggregate_minfreq")
 use_r("generate_data")
+use_git()
+use_github()
+
+
 ?usethis
 
 load_all()
@@ -20,8 +24,7 @@ aggregate_minfreq(data, names(data))
 
 # population test
 data = pop_data(3000)
-vars = names(data)
-out1 <- aggregate_minfreq(data, rev(vars))
+vars = names(data)[1:4]
 out2 <- aggregate_minfreq(data, vars)
 
 graense = 3
@@ -37,4 +40,3 @@ sum2 <- out2 |>
   summarise(n = n())
 
 write.csv2(data, "./udisk.csv", row.names = FALSE)
-?write.csv2

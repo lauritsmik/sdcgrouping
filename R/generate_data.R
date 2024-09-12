@@ -39,11 +39,14 @@ pop_data <- function(n) {
 
   # Create the dataset
   data <- data.frame(
-    Age = ages,
-    Sex = sexes,
-    Employment_Status = employment_statuses,
-    Education_Level = education_levels
+    age = ages,
+    sex = sexes,
+    employment_Status = employment_statuses,
+    education_Level = education_levels
   )
+
+  data <- data |>
+    dplyr::mutate(id = row_number())
 
   return(data)
 }

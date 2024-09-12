@@ -24,7 +24,7 @@ aggregate_minfreq <- function(data, vars, graense = 3){
         lag = dplyr::lag(sum, default = dplyr::first(antal)),
         tekst = dplyr::if_else(
           lag < graense | antal < graense,
-          "diskretioneret",
+          "Diskretioneret",
           !!sym_var
         )
       )
